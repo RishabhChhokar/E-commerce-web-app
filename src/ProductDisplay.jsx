@@ -21,17 +21,7 @@ const productsArr = [
     title: "Blue Color",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
-  {
-    title: "Blue Color",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
-  {
-    title: "Blue Color",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
+  }
 ];
 
 const ProductDisplay = () => {
@@ -41,11 +31,6 @@ const ProductDisplay = () => {
       <Row>
         {productsArr.map((product, index) => (
           <Col
-            style={{
-              display: "inline-block",
-              marginRight: "13px",
-              marginLeft: "1px",
-            }}
             key={index}
             md={3}
           >

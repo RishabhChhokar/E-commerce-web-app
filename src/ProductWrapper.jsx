@@ -2,7 +2,7 @@ import { Card } from "react-bootstrap";
 
 const ProductWrapper = (props) => {
   return (
-    <Card style={{ width: "18rem"}}>
+    <Card style={{ width: "10rem"}}>
       <Card.Img variant="top" src={props.imageUrl} />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
