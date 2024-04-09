@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Button } from "react-bootstrap";
+import Header from "./Header";
 import ProductDisplay from "./ProductDisplay";
 import Cart from "./Cart";
-
+import CartProvider from "./Store/CartContext";
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -11,13 +11,11 @@ const App = () => {
   };
 
   return (
-    <>
-      <Button onClick={toggleCart} variant="info" className="cart-toggle">
-        Cart
-      </Button>
-      {isCartOpen && <Cart closeCart={toggleCart}/>}
+    <CartProvider>
+      <Header toggleCart={toggleCart} />
+      {isCartOpen && <Cart closeCart={toggleCart} />}
       <ProductDisplay />
-    </>
+    </CartProvider>
   );
 };
 
