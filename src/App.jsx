@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import ProductDisplay from "./ProductDisplay";
 import Cart from "./Cart";
+import About from "./About";
 import CartProvider from "./Store/CartContext";
+
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -12,9 +15,14 @@ const App = () => {
 
   return (
     <CartProvider>
-      <Header toggleCart={toggleCart} />
-      {isCartOpen && <Cart closeCart={toggleCart} />}
-      <ProductDisplay />
+      <Router>
+        <Header toggleCart={toggleCart} />
+        {isCartOpen && <Cart closeCart={toggleCart} />}
+        <Routes>
+          <Route path="/" element={<ProductDisplay />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
     </CartProvider>
   );
 };
