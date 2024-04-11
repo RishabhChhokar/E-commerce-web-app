@@ -21,7 +21,7 @@ const productsArr = [
     title: "Blue Color",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  }
+  },
 ];
 
 const ProductDisplay = () => {
@@ -30,10 +30,7 @@ const ProductDisplay = () => {
       <h1>Products</h1>
       <Row>
         {productsArr.map((product, index) => (
-          <Col
-            key={index}
-            md={3}
-          >
+          <Col key={index} md={3}>
             <ProductWrapper
               title={product.title}
               price={product.price}

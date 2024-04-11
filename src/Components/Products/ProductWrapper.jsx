@@ -1,4 +1,4 @@
-import { useCart } from "./Store/CartContext";
+import { useCart } from "../../Store/CartContext";
 import { Card, Button } from "react-bootstrap";
 
 const ProductWrapper = (props) => {
