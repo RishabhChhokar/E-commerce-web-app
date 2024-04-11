@@ -38,14 +38,21 @@ const Header = ({ toggleCart }) => {
               About Us
             </NavLink>
             <NavLink
-              to="/store/product"
+              to="/products"
               style={{ marginRight: "10px", color: "white" }}
               activeClassName="active"
             >
               Product
             </NavLink>
             <NavLink
-              to="/contact us"
+              to="/login"
+              style={{ marginRight: "10px", color: "white" }}
+              activeClassName="active"
+            >
+              login
+            </NavLink>
+            <NavLink
+              to="/contact_us"
               style={{ marginRight: "300px", color: "white" }}
               activeClassName="active"
             >
