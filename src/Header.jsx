@@ -1,9 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useCart } from "./Store/CartContext";
 import classes from "./Header.module.css";
+
 const Header = ({ toggleCart }) => {
   const { getTotalItems } = useCart();
+  const location = useLocation();
+
+  const isStorePage = location.pathname === "/";
 
   return (
     <>
@@ -28,19 +32,28 @@ const Header = ({ toggleCart }) => {
             </NavLink>
             <NavLink
               to="/about"
-              style={{ marginRight: "540px", color: "white" }}
+              style={{ marginRight: "10px", color: "white" }}
               activeClassName="active"
             >
               About Us
             </NavLink>
-            <Button
-              style={{ marginBottom: "12px", marginTop: "12px" }}
-              onClick={toggleCart}
-              variant="info"
-              className="cart-toggle"
+            <NavLink
+              to="/contact us"
+              style={{ marginRight: "400px", color: "white" }}
+              activeClassName="active"
             >
-              Cart ({getTotalItems()})
-            </Button>
+              Contact us
+            </NavLink>
+            {isStorePage && (
+              <Button
+                style={{ marginBottom: "12px", marginTop: "12px" }}
+                onClick={toggleCart}
+                variant="info"
+                className="cart-toggle"
+              >
+                Cart ({getTotalItems()})
+              </Button>
+            )}
           </div>
         </div>
       </header>
