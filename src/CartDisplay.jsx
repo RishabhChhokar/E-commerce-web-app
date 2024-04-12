@@ -1,4 +1,4 @@
-import { Card,Button} from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 const CartDisplay = (props) => {
   return (
@@ -16,4 +16,5 @@ const CartDisplay = (props) => {
     </Card>
   );
 };
+
 export default CartDisplay;
