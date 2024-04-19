@@ -1,12 +1,13 @@
 import { useState, useRef, useContext } from "react";
 import AuthContext from "../../Store/AuthContext";
-
 import classes from "./AuthForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
+  const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
 
   const [isLogin, setIsLogin] = useState(true);
@@ -44,18 +45,20 @@ const AuthForm = () => {
         "Content-Type": "application/json",
       },
     })
-      .then(async (res) => {
+      .then((res) => {
         setIsLoading(false);
         if (res.ok) {
           return res.json();
         } else {
-          const data = await res.json();
+          return res.json().then((data) => {
             let errorMessage = "AUTHENTICATION FAILED!";
             throw new Error(errorMessage);
+          });
         }
       })
       .then((data) => {
-        authCtx.login(data.idToken);
+        authCtx.login(data.idToken, data.email);
+        navigate("/Store");
       })
       .catch((err) => {
         alert(err);
